@@ -1,22 +1,13 @@
 const express = require('express');
+const app = express();
 
-const app = express ();
-app.use(express.json());
-
-const PORT = 3000;
-
-
-app.listen(PORT, () => {
-    console.log("Server Listening on PORT:", port);
+app.listen(3000, () => {
+    console.log("Server running on port 3000");
 });
-  
 
 
-app.get("/status", (request, response) => {
-    const status = {
-       "Status": "Running"
-    };
-    
-    response.send(status);
+
+// status get endpoint
+app.get("/status", (req, res, next) => {
+    res.json({ "status": "running" });
 });
- 
